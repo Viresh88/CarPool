@@ -1,20 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:background="@drawable/customborder"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
 
+    <!-- Pickup Location Icon -->
+    <ImageView
+        android:id="@+id/ivPickupLocationIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_lock_idle_alarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvDropLocation"
+        app:tint="?attr/colorPrimary" />
+
+    <!-- Pickup Location Text -->
     <TextView
-        android:id="@+id/pickupTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvPickupLocation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Pickup Location" />
+        android:text="Pickup Location"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/ivPickupLocationIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Drop Location Icon -->
+    <ImageView
+        android:id="@+id/ivDropLocationIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_lock_idle_alarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPickupLocation"
+        android:layout_marginTop="8dp"
+        app:tint="?attr/colorPrimary" />
+
+    <!-- Drop Location Text -->
     <TextView
-        android:id="@+id/dropTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvDropLocation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Drop Location" />
+        android:text="Drop Location"
+        android:textSize="16sp"
+        android:paddingStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/ivDropLocationIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPickupLocation" />
 
-</LinearLayout>
+    <!-- Date and Time Icon -->
+    <ImageView
+        android:id="@+id/ivDateTimeIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDropLocation"
+        android:layout_marginTop="8dp"
+        app:tint="?attr/colorPrimary" />
+
+    <!-- Date and Time Text -->
+    <TextView
+        android:id="@+id/tvDateTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Date and Time"
+        android:textSize="14sp"
+        android:paddingStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/ivDateTimeIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDropLocation" />
+
+    <!-- Seats Icon -->
+    <ImageView
+        android:id="@+id/ivSeatsIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTime"
+        android:layout_marginTop="8dp"
+        app:tint="?attr/colorPrimary" />
+
+    <!-- Seats Text -->
+    <TextView
+        android:id="@+id/tvSeats"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Seats: 3"
+        android:textSize="14sp"
+        android:paddingStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/ivSeatsIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTime" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

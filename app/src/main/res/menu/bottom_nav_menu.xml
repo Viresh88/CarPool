@@ -8,18 +8,15 @@
         android:id="@+id/myRides"
         android:title="my rides"
         android:icon="@drawable/car" />
+
+
     <item
-        android:id="@+id/requestRide"
-        android:title="reuest ride"
-        android:icon="@drawable/car" />
+        android:id="@+id/chat"
+        android:title="chat"
+        android:icon="@drawable/chat" />
 
-<!--    <item-->
-<!--        android:id="@+id/chat"-->
-<!--        android:title="chat"-->
-<!--        android:icon="@drawable/chat" />-->
-
-<!--    <item-->
-<!--        android:id="@+id/profile"-->
-<!--        android:title="profile"-->
-<!--        android:icon="@drawable/profile" />-->
+    <item
+        android:id="@+id/profile"
+        android:title="profile"
+        android:icon="@drawable/profile" />
 </menu>

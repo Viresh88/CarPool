@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RideAdapter(private val rideList: List<Ride>) :
+class RideAdapter(private val rideList: List<RideOffer>) :
     RecyclerView.Adapter<RideAdapter.RideViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RideViewHolder {
@@ -26,8 +26,8 @@ class RideAdapter(private val rideList: List<Ride>) :
     }
 
     class RideViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val pickupTextView: TextView = itemView.findViewById(R.id.pickupTextView)
-        val dropTextView: TextView = itemView.findViewById(R.id.dropTextView)
+        val pickupTextView: TextView = itemView.findViewById(R.id.tvPickupLocation)
+        val dropTextView: TextView = itemView.findViewById(R.id.tvDropLocation)
     }
 }
 

@@ -6,38 +6,40 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
+import com.example.carpool2.MainApplication.Companion.database
 import com.example.carpool2.databinding.ActivityHomePageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomePageActivity : AppCompatActivity() {
     private lateinit var homePageBinding: ActivityHomePageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homePageBinding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(homePageBinding.root)
 
+        database = MainApplication.database!!
+
+        val offerPoolButton: Button = findViewById(R.id.offerPoolButton)
         val findPoolButton: Button = findViewById(R.id.findPoolButton)
-        val offerPoolButton : Button = findViewById(R.id.offerPoolButton)
         findPoolButton.setOnClickListener {
-            findPoolButton.setBackgroundColor(Color.parseColor("#FF9800")) // Orange color
-            offerPoolButton.setBackgroundColor(Color.parseColor("#E0E0E0"))
+            val pickupLocation: String = findViewById<EditText>(R.id.pickupLocation).text.toString()
+            val dropLocation: String = findViewById<EditText>(R.id.dropLocation).text.toString()
+            val dateTime: String = findViewById<TextView>(R.id.date_time_value).text.toString()
+            val numberOfSeats: Int = 1
 
-            val pickupLocation = findViewById<EditText>(R.id.pickupLocation).text.toString()
-            val dropLocation = findViewById<EditText>(R.id.dropLocation).text.toString()
-
-            if (pickupLocation.isNotEmpty() && dropLocation.isNotEmpty()) {
-                val ride = Ride(pickupLocation, dropLocation)
-                val rideStorage = RideDatabaseHelper(this)
-                rideStorage.saveRide(ride)
-
-                Toast.makeText(this, "Ride saved to My Rides!", Toast.LENGTH_SHORT).show()
-
-                // Optionally, navigate to "My Rides" section
-            } else {
-                Toast.makeText(this, "Please enter both pickup and drop locations", Toast.LENGTH_SHORT).show()
-            }
+            val rideOffer = RideOffer(0, pickupLocation, dropLocation, dateTime, numberOfSeats)
+            saveRideOffer(rideOffer)
         }
+
+
+
 
         offerPoolButton.setOnClickListener {
             offerPoolButton.setBackgroundColor(Color.parseColor("#FF9800")) // Orange color
@@ -58,21 +60,24 @@ class HomePageActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.requestRide -> {
+
+
+                R.id.chat -> {
                     true
                 }
 
-//                R.id.chat -> {
-//                    true
-//                }
-//
-//                R.id.profile -> {
-//                    true
-//                }
+                R.id.profile -> {
+                    true
+                }
 
                 else -> false
             }
 
+        }
+    }
+    private fun saveRideOffer(rideOffer: RideOffer) {
+        CoroutineScope(Dispatchers.IO).launch {
+            database?.rideOfferDao()?.insertRideOffer(rideOffer)
         }
     }
 }

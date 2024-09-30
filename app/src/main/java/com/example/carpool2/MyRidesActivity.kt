@@ -3,35 +3,41 @@ package com.example.carpool2
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MyRidesActivity : AppCompatActivity() {
     private lateinit var rideAdapter: RideAdapter
-    private lateinit var rideStorage: RideDatabaseHelper
+    private val viewModel: RideOfferViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_rides)
 
-        rideStorage = RideDatabaseHelper(this)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        viewModel.allRideOffers.observe(this, Observer { rideOffers ->
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            rideAdapter = RideAdapter(rideOffers)
+            recyclerView.adapter = rideAdapter
+        })
 
-        // Get all rides from the database
-        val allRides = rideStorage.getAllRides()
 
         // Setup RecyclerView
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        rideAdapter = RideAdapter(allRides)
-        recyclerView.adapter = rideAdapter
+
+
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    val intent = Intent(this, HomePageActivity::class.java)
+                    val intent = Intent(this, MyRidesActivity::class.java)
                     startActivity(intent)
                     true
                 }
@@ -40,9 +46,6 @@ class MyRidesActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.requestRide -> {
-                    true
-                }
 
 //                R.id.chat -> {
 //                    true
