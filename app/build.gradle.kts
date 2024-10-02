@@ -54,6 +54,8 @@ dependencies {
 
     // ViewModel utilities for managing UI components
     implementation ("androidx.fragment:fragment-ktx:1.3.1")
+    implementation("androidx.room:room-common:2.6.1")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     // Annotation processor for LiveData (if using Java)
     annotationProcessor ("androidx.lifecycle:lifecycle-compiler:2.8.6")
         implementation ("androidx.room:room-runtime:2.6.1")

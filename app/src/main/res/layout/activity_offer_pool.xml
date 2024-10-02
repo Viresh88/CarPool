@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/iv_car_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/caricon"
+        android:paddingBottom="16dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/locationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/customborder">
+
+        <TextView
+            android:id="@+id/chooseLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Choose Location"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"/>
+
+
+        <EditText
+            android:id="@+id/pickupLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="5dp"
+            android:hint="Pickup Location"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/dropLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:hint="Drop Location"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_model"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Vehicle Model" />
+
+    <!-- Vehicle Year Spinner -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vehicle Year"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="4dp" />
+
+    <Spinner
+        android:id="@+id/spinner_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/select_vehicle_year"/>
+
+    <!-- Vehicle Number EditText -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vehicle Number"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_vehicle_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add Vehicle Number" />
+
+    <!-- Seats Spinner -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seats"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="4dp" />
+
+    <Spinner
+        android:id="@+id/spinner_seats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/select_seats" />
+
+    <!-- Next Button -->
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:layout_marginTop="32dp" />
+</LinearLayout>

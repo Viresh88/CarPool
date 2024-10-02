@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_marginTop="10dp"
     android:layout_marginEnd="10dp"
@@ -12,12 +13,12 @@
     <!-- Pickup Location Icon -->
     <ImageView
         android:id="@+id/ivPickupLocationIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@android:drawable/ic_lock_idle_alarm"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/location"
+        app:layout_constraintBottom_toTopOf="@id/tvDropLocation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvDropLocation"
         app:tint="?attr/colorPrimary" />
 
     <!-- Pickup Location Text -->
@@ -36,9 +37,9 @@
     <!-- Drop Location Icon -->
     <ImageView
         android:id="@+id/ivDropLocationIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@android:drawable/ic_lock_idle_alarm"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPickupLocation"
         android:layout_marginTop="8dp"
@@ -52,6 +53,8 @@
         android:text="Drop Location"
         android:textSize="16sp"
         android:paddingStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/ivDropLocationIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPickupLocation" />
@@ -59,9 +62,9 @@
     <!-- Date and Time Icon -->
     <ImageView
         android:id="@+id/ivDateTimeIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@android:drawable/ic_menu_view"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/calendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDropLocation"
         android:layout_marginTop="8dp"
@@ -73,8 +76,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Date and Time"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:paddingStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@id/ivDateTimeIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDropLocation" />
@@ -84,7 +88,6 @@
         android:id="@+id/ivSeatsIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@android:drawable/ic_menu_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDateTime"
         android:layout_marginTop="8dp"

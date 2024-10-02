@@ -6,6 +6,9 @@
     <color name="backgroundPrimary">#7E837E</color>
     <color name="background">#847F7F</color>
 
+    <color name="button_active">#FFA500</color> <!-- Example active color -->
+    <color name="button_inactive">#FFBB86FC</color> <!-- Example inactive color -->
+
     <color name="nav_item_active">#FFA500</color>
     <color name="nav_item_inactive">#808080</color>
 </resources>

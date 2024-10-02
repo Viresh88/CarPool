@@ -19,6 +19,7 @@ class RideAdapter(private val rideList: List<RideOffer>) :
         val ride = rideList[position]
         holder.pickupTextView.text = "Pickup Location: ${ride.pickupLocation}"
         holder.dropTextView.text = "Drop Location: ${ride.dropLocation}"
+        holder.dateTimeTxtView.text = "Date and Time : ${ride.dateTime}"
     }
 
     override fun getItemCount(): Int {
@@ -28,6 +29,7 @@ class RideAdapter(private val rideList: List<RideOffer>) :
     class RideViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val pickupTextView: TextView = itemView.findViewById(R.id.tvPickupLocation)
         val dropTextView: TextView = itemView.findViewById(R.id.tvDropLocation)
+        val dateTimeTxtView : TextView = itemView.findViewById(R.id.tvDateTime)
     }
 }
 

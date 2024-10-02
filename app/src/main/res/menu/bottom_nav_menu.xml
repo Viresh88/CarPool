@@ -16,7 +16,14 @@
         android:icon="@drawable/chat" />
 
     <item
+        android:id="@+id/requestRide"
+        android:title="Request Ride"
+        android:icon="@drawable/caricon" />
+
+    <item
         android:id="@+id/profile"
         android:title="profile"
         android:icon="@drawable/profile" />
+
+
 </menu>
