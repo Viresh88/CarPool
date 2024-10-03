@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Car Body -->
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M30,50 L70,50 L80,70 L20,70 Z" />
+
+    <!-- Windows of the Car -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,52 L48,52 L48,68 L32,68 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,52 L68,52 L68,68 L52,68 Z" />
+
+    <!-- Wheels (Using Paths) -->
+    <path
+        android:fillColor="#03DAC5"
+        android:pathData="M35,75 A5,5 0 1,0 45,75 A5,5 0 1,0 35,75" />
+    <path
+        android:fillColor="#03DAC5"
+        android:pathData="M65,75 A5,5 0 1,0 75,75 A5,5 0 1,0 65,75" />
+
+    <!-- Passengers in the Car (Using Paths) -->
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M40,40 A4,4 0 1,0 48,40 A4,4 0 1,0 40,40" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M60,40 A4,4 0 1,0 68,40 A4,4 0 1,0 60,40" />
+
+    <!-- Location Marker -->
+    <path
+        android:fillColor="#03DAC5"
+        android:pathData="M50,10 C55,10 60,15 60,20 C60,25 55,35 50,35 C45,35 40,25 40,20 C40,15 45,10 50,10 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,20 A3,3 0 1,0 56,20 A3,3 0 1,0 50,20" />
+
+</vector>

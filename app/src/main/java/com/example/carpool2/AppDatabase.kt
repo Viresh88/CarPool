@@ -18,7 +18,7 @@ class Converters {
     }
 }
 
-@Database(entities = [RideOffer::class, Vehicle::class], version = 1)
+@Database(entities = [RideOffer::class, Vehicle::class], version = 3)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun rideOfferDao(): RideOfferDao

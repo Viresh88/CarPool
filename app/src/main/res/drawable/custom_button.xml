@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed State -->
+    <item android:state_pressed="true">
+        <shape>
+            <!-- Background Color for Pressed State -->
+            <solid android:color="#FF5722" /> <!-- Change to your preferred pressed color -->
+            <corners android:radius="12dp" /> <!-- Rounded corners for the button -->
+            <stroke
+                android:width="2dp"
+                android:color="#D84315" /> <!-- Border color for pressed state -->
+        </shape>
+    </item>
+
+    <!-- Default State -->
+    <item>
+        <shape>
+            <!-- Gradient Background for Normal State -->
+            <gradient
+                android:startColor="#FF8A65"
+                android:endColor="#FF7043"
+                android:angle="270" /> <!-- Gradient effect for a modern look -->
+            <corners android:radius="12dp" /> <!-- Rounded corners for the button -->
+            <stroke
+                android:width="2dp"
+                android:color="#FF5722" /> <!-- Border color for normal state -->
+        </shape>
+    </item>
+</selector>

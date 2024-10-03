@@ -71,69 +71,92 @@
         app:layout_constraintTop_toBottomOf="@+id/findPoolButton">
         <!-- Location Layout -->
         <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/locationLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-
             android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:padding="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/customborder_rounded"
+            android:elevation="4dp">
 
+            <!-- Title: Choose Location -->
             <TextView
                 android:id="@+id/chooseLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
                 android:text="Choose Location"
-                android:textSize="18sp" />
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@android:color/black" />
 
+            <!-- Pickup Location EditText -->
             <EditText
                 android:id="@+id/pickupLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:hint="Pickup Location"
-                android:textColor="#000000"
+                android:background="@drawable/custom_edittext"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
+            <!-- Drop Location EditText -->
             <EditText
                 android:id="@+id/dropLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="7dp"
                 android:hint="Drop Location"
-                android:textColor="#000000"
+                android:background="@drawable/custom_edittext"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
+            <!-- Home and Work Button Row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
 
+                <!-- Home Button -->
                 <Button
                     android:id="@+id/homeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#E0E0E0"
-                    android:drawableLeft="@drawable/homeicon2"
+                    android:background="@drawable/custom_button"
+                    android:drawableStart="@drawable/homeicon2"
+                    android:drawablePadding="8dp"
+                    android:padding="12dp"
                     android:text="Home"
-                    android:textColor="#000000" />
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:elevation="4dp" />
 
+                <!-- Work Button -->
                 <Button
                     android:id="@+id/workButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="#E0E0E0"
-                    android:drawableLeft="@drawable/work"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/custom_button"
+                    android:drawableStart="@drawable/work"
+                    android:drawablePadding="8dp"
+                    android:padding="12dp"
                     android:text="Work"
-                    android:textColor="#000000" />
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:elevation="4dp" />
             </LinearLayout>
+
         </LinearLayout>
+
 
         <!-- Date & Time Picker -->
         <TextView
@@ -240,9 +263,12 @@
 
         </LinearLayout>
 
+
+
+
         <Button
             android:id="@+id/btnNext"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="NEXT"
             android:textSize="18sp"
@@ -270,129 +296,170 @@
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/findPoolButton">
+            app:layout_constraintTop_toBottomOf="@+id/findPoolButton"
+            tools:ignore="NotSibling">
 
-            <LinearLayout
+            <ScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-
-                <ImageView
-                    android:id="@+id/iv_car_icon"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:paddingBottom="16dp"
-                    android:src="@drawable/caricon" />
+                android:background="@android:color/white">
 
                 <LinearLayout
-                    android:id="@+id/locationLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/chooseLocation1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <!-- Car Icon Section -->
+                    <ImageView
+                        android:id="@+id/iv_car_icon"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
                         android:layout_marginTop="16dp"
-                        android:text="Choose Location"
-                        android:textSize="16sp" />
+                        android:src="@drawable/ic_carpool_pro"
+                        android:contentDescription="Car Icon" />
 
-
-                    <EditText
-                        android:id="@+id/pickupLocation1"
+                    <!-- Location Input Section -->
+                    <LinearLayout
+                        android:id="@+id/locationLayout1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:hint="Pickup Location"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/customborder_rounded"
+                        android:elevation="4dp">
 
-                    <EditText
-                        android:id="@+id/dropLocation1"
+                        <TextView
+                            android:id="@+id/chooseLocation1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Choose Location"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:layout_marginBottom="12dp" />
+
+                        <EditText
+                            android:id="@+id/pickupLocation1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Pickup Location"
+                            android:background="@drawable/custom_edittext"
+                            android:padding="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/dropLocation1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Drop Location"
+                            android:background="@drawable/custom_edittext"
+                            android:padding="12dp"
+                            android:layout_marginBottom="16dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- Vehicle Details Section -->
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:hint="Drop Location"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:text="Model"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="4dp" />
+
+                    <EditText
+                        android:id="@+id/et_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Vehicle Model"
+                        android:background="@drawable/custom_edittext"
+                        android:padding="12dp"
+                        android:textColor="@android:color/black" />
+
+                    <!-- Vehicle Year Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vehicle Year"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="4dp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_spinner"
+                        android:padding="12dp"
+                        android:popupBackground="@android:color/white" />
+
+                    <!-- Vehicle Number Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vehicle Number"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="4dp" />
+
+                    <EditText
+                        android:id="@+id/et_vehicle_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Add Vehicle Number"
+                        android:background="@drawable/custom_edittext"
+                        android:padding="12dp"
+                        android:textColor="@android:color/black" />
+
+                    <!-- Seats Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Seats"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="4dp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_seats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_spinner"
+                        android:padding="12dp"
+                        android:popupBackground="@android:color/white" />
+
+                    <!-- Next Button Section -->
+                    <Button
+                        android:id="@+id/btn_next"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="NEXT"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="16dp"
+                        android:backgroundTint="@android:color/holo_orange_light"
+                        android:textColor="@android:color/white"
+                        android:elevation="8dp" />
+
                 </LinearLayout>
+            </ScrollView>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Model"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/et_model"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Vehicle Model" />
-
-                <!-- Vehicle Year Spinner -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Vehicle Year"
-                    android:textSize="16sp" />
-
-                <Spinner
-                    android:id="@+id/spinner_year"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:prompt="@string/select_vehicle_year" />
-
-                <!-- Vehicle Number EditText -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Vehicle Number"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/et_vehicle_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Add Vehicle Number" />
-
-                <!-- Seats Spinner -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Seats"
-                    android:textSize="16sp" />
-
-                <Spinner
-                    android:id="@+id/spinner_seats"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:prompt="@string/select_seats" />
-
-                <!-- Next Button -->
-                <Button
-                    android:id="@+id/btn_next"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:backgroundTint="@android:color/holo_orange_light"
-                    android:text="NEXT"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
-            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

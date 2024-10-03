@@ -1,17 +1,14 @@
 package com.example.carpool2
 
-
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MyRidesActivity : AppCompatActivity() {
     private lateinit var rideAdapter: RideAdapter
@@ -28,46 +25,53 @@ class MyRidesActivity : AppCompatActivity() {
             recyclerView.adapter = rideAdapter
         })
 
-
-        // Setup RecyclerView
-
-
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.itemIconTintList = ContextCompat.getColorStateList(this, R.color.primary_dark)
+        // Set the correct menu item as selected
+        bottomNavigationView.selectedItemId = R.id.myRides
+
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     val intent = Intent(this, HomePageActivity::class.java)
                     startActivity(intent)
+                    finish()
+                    true
+                }
+
+                R.id.chat -> {
+                    val intent = Intent(this, UserListActivity::class.java)
+                    startActivity(intent)
+                    finish()
                     true
                 }
 
                 R.id.myRides -> {
                     val intent = Intent(this, MyRidesActivity::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
 
-
-//                R.id.chat -> {
-//                    true
-//                }
-//
-//                R.id.profile -> {
-//                    true
-//                }
-
-                R.id.requestRide ->{
+                R.id.requestRide -> {
                     val intent = Intent(this, RequestRideActivity::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
 
                 else -> false
             }
-
         }
     }
-}
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        // Navigate to HomeActivity when back button is pressed
+        val intent = Intent(this, HomePageActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish() // Finish the current activity
+    }
+}
 

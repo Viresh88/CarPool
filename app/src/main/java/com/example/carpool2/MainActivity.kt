@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
 
-        activityMainBinding.loginButton.setOnClickListener {
+        activityMainBinding.btnSubmit.setOnClickListener {
             val email = activityMainBinding.emailEditText.text.toString().trim()
             if (email.isNotEmpty()) {
                 sendEmailVerification(email)

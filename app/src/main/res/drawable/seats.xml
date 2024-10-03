@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Seat back -->
+    <path
+        android:fillColor="@color/primary_dark"
+        android:pathData="M4,4h16v2H4z" />
+
+    <!-- Seat base -->
+    <path
+        android:fillColor="@color/primary_dark"
+        android:pathData="M4,11h16v2H4z" />
+
+    <!-- Left leg -->
+    <path
+        android:fillColor="@color/primary_dark"
+        android:pathData="M5,13v5h2v-5z" />
+
+    <!-- Right leg -->
+    <path
+        android:fillColor="@color/primary_dark"
+        android:pathData="M17,13v5h2v-5z" />
+
+    <!-- Seat cushion -->
+    <path
+        android:fillColor="@color/primary_dark"
+        android:pathData="M4,8h16v2H4z" />
+
+</vector>

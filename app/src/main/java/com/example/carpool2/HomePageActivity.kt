@@ -133,43 +133,56 @@ class HomePageActivity : AppCompatActivity() {
         offerPoolButton.setOnClickListener {
             main2Layout.visibility = View.VISIBLE
             mainLayout.visibility = View.GONE
-//            val intent = Intent(this, OfferPool::class.java)
-//            startActivity(intent)
-//            offerPoolButton.setBackgroundColor(Color.parseColor("#FF9800")) // Orange color
-//            findPoolButton.setBackgroundColor(Color.parseColor("#E0E0E0"))
-
-            // Set "Offer Pool" button as active and "Find Pool" button as inactive
             offerPoolButton.setBackgroundColor(ContextCompat.getColor(this, R.color.button_active))
             findPoolButton.setBackgroundColor(ContextCompat.getColor(this, R.color.button_inactive))
         }
 
+        findPoolButton.setOnClickListener {
+            main2Layout.visibility = View.GONE
+            mainLayout.visibility = View.VISIBLE
+            offerPoolButton.setBackgroundColor(ContextCompat.getColor(this, R.color.button_inactive))
+            findPoolButton.setBackgroundColor(ContextCompat.getColor(this, R.color.button_active))
+        }
+
+
+
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.itemIconTintList = ContextCompat.getColorStateList(this, R.color.primary_dark)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     val intent = Intent(this, HomePageActivity::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
 
                 R.id.myRides -> {
                    val intent = Intent(this, MyRidesActivity::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
 
                 R.id.chat -> {
+                    val intent = Intent(this, UserListActivity::class.java)
+                    startActivity(intent)
+                    finish()
                     true
                 }
 
                 R.id.requestRide-> {
                     val intent = Intent(this, RequestRideActivity::class.java)
                     startActivity(intent)
+                    finish()
                     true
                 }
 
                 R.id.profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    finish()
                     true
                 }
 

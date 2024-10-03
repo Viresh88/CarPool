@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/background_light">
 
+    <!-- Car Icon at the top -->
     <ImageView
         android:id="@+id/iv_car_icon"
         android:layout_width="100dp"
@@ -14,105 +16,124 @@
         android:src="@drawable/caricon"
         android:paddingBottom="16dp"/>
 
-
+    <!-- Location Container with rounded corners -->
     <LinearLayout
         android:id="@+id/locationLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/customborder">
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/customborder_rounded"
+        android:elevation="4dp">
 
+        <!-- Choose Location Header -->
         <TextView
             android:id="@+id/chooseLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="Choose Location"
-            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_dark"
             android:textSize="18sp"/>
 
-
+        <!-- Pickup Location Input -->
         <EditText
             android:id="@+id/pickupLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="5dp"
             android:hint="Pickup Location"
-            android:textColor="#000000"
+            android:background="@drawable/custom_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@android:color/black"
             android:textSize="16sp"/>
 
+        <!-- Drop Location Input -->
         <EditText
             android:id="@+id/dropLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
             android:hint="Drop Location"
-            android:textColor="#000000"
+            android:background="@drawable/custom_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black"
             android:textSize="16sp"/>
     </LinearLayout>
 
+    <!-- Vehicle Model -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Model"
         android:textSize="16sp"
         android:paddingTop="16dp"
-        android:paddingBottom="4dp" />
+        android:paddingBottom="4dp"
+        android:textColor="@color/primary_dark"/>
 
     <EditText
         android:id="@+id/et_model"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Vehicle Model" />
+        android:hint="Enter Vehicle Model"
+        android:background="@drawable/custom_edittext"
+        android:padding="12dp"/>
 
-    <!-- Vehicle Year Spinner -->
+    <!-- Vehicle Year -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Vehicle Year"
         android:textSize="16sp"
         android:paddingTop="16dp"
-        android:paddingBottom="4dp" />
+        android:paddingBottom="4dp"
+        android:textColor="@color/primary_dark"/>
 
     <Spinner
         android:id="@+id/spinner_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/select_vehicle_year"/>
+        android:background="@drawable/custom_spinner"
+        android:padding="8dp"
+        android:popupBackground="@color/white"/>
 
-    <!-- Vehicle Number EditText -->
+    <!-- Vehicle Number -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Vehicle Number"
         android:textSize="16sp"
         android:paddingTop="16dp"
-        android:paddingBottom="4dp" />
+        android:paddingBottom="4dp"
+        android:textColor="@color/primary_dark"/>
 
     <EditText
         android:id="@+id/et_vehicle_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Add Vehicle Number" />
+        android:hint="Add Vehicle Number"
+        android:background="@drawable/custom_edittext"
+        android:padding="12dp"/>
 
-    <!-- Seats Spinner -->
+    <!-- Seats Available -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Seats"
         android:textSize="16sp"
         android:paddingTop="16dp"
-        android:paddingBottom="4dp" />
+        android:paddingBottom="4dp"
+        android:textColor="@color/primary_dark"/>
 
     <Spinner
         android:id="@+id/spinner_seats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/select_seats" />
+        android:background="@drawable/custom_spinner"
+        android:padding="8dp"
+        android:popupBackground="@color/white"/>
 
     <!-- Next Button -->
     <Button
@@ -121,7 +142,10 @@
         android:layout_height="wrap_content"
         android:text="NEXT"
         android:textSize="18sp"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:backgroundTint="@android:color/holo_orange_light"
-        android:layout_marginTop="32dp" />
+        android:backgroundTint="@color/primary_dark"
+        android:layout_marginTop="32dp"
+        android:elevation="8dp"
+        android:layout_marginBottom="16dp"/>
 </LinearLayout>
