@@ -109,6 +109,46 @@ class HomePageActivity : AppCompatActivity() {
         // Initially, set the "Find Pool" button as active
         findPoolButton.setBackgroundColor(ContextCompat.getColor(this, R.color.button_active))
         offerPoolButton.setBackgroundColor(ContextCompat.getColor(this, R.color.button_inactive))
+        var selectedSeats : Int = 0
+        val seatbtn1 = findViewById<Button>(R.id.seat_1)
+        val seatbtn2 = findViewById<Button>(R.id.seat_2)
+        val seatbtn3 = findViewById<Button>(R.id.seat_3)
+
+        // Function to highlight the selected seat button and store the seat number
+        fun highlightSelectedSeat(selectedButton: Button, seatNumber: Int) {
+            // Reset all button backgrounds
+            seatbtn1.setBackgroundResource(R.drawable.seat_unselected_background)
+            seatbtn2.setBackgroundResource(R.drawable.seat_unselected_background)
+            seatbtn3.setBackgroundResource(R.drawable.seat_unselected_background)
+
+            // Reset text colors to unselected state
+            seatbtn1.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+            seatbtn2.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+            seatbtn3.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+
+            // Highlight the selected button
+            // Highlight the selected button
+            selectedButton.setBackgroundResource(R.drawable.seat_selected_background)
+            selectedButton.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+
+            // Store the selected number of seats
+            selectedSeats = seatNumber
+        }
+
+        // Set click listeners for seat buttons
+        seatbtn1.setOnClickListener {
+            highlightSelectedSeat(seatbtn1, 1)
+        }
+
+        seatbtn2.setOnClickListener {
+            highlightSelectedSeat(seatbtn2, 2)
+        }
+
+        seatbtn3.setOnClickListener {
+            highlightSelectedSeat(seatbtn3, 3)
+        }
+
+
         btnNext.setOnClickListener {
             mainLayout.visibility = View.VISIBLE
             main2Layout.visibility = View.GONE
@@ -117,14 +157,32 @@ class HomePageActivity : AppCompatActivity() {
             val pickupLocation: String = findViewById<EditText>(R.id.pickupLocation).text.toString()
             val dropLocation: String = findViewById<EditText>(R.id.dropLocation).text.toString()
             val dateTime: String = findViewById<EditText>(R.id.date_time_value).text.toString()
-            val numberOfSeats: Int = 1
 
-            val rideOffer = RideOffer(0, pickupLocation, dropLocation, dateTime, numberOfSeats)
-            saveRideOffer(rideOffer)
+            if (pickupLocation.isEmpty()) {
+                showToast("Please enter the pickup location")
+            }
+            else if (dropLocation.isEmpty()) {
+               showToast("Please enter the drop location")
+            }
+            else if (dateTime.isEmpty()) {
+                showToast("Please select a date and time")
+            }
+            else if (selectedSeats == 0) {
+               showToast("Please select the number of seats")
+            }
+
+//            if (selectedSeats == 0) {
+//                Toast.makeText(this, "Please select the number of seats", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
+           else {
+                val rideOffer = RideOffer(0, pickupLocation, dropLocation, dateTime, selectedSeats)
+                saveRideOffer(rideOffer)
 
 
-            val intent = Intent(this, MyRidesActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(this, MyRidesActivity::class.java)
+                startActivity(intent)
+            }
         }
 
 
@@ -191,6 +249,8 @@ class HomePageActivity : AppCompatActivity() {
 
         }
     }
+
+
 
     private fun showDatePickerAndTimePicker(dateTimeEditText: EditText) {
         val calendar = Calendar.getInstance()
