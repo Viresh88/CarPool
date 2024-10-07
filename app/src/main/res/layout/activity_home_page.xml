@@ -30,7 +30,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Pool Buttons -->
+            <ImageView
+                android:id="@+id/btnLogout"
+                android:layout_width="34dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/logouticon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/welcomeText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!-- Pool Buttons -->
     <Button
         android:id="@+id/findPoolButton"
         android:layout_width="0dp"

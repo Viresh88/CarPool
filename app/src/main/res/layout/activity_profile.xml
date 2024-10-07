@@ -81,16 +81,16 @@
                 android:paddingBottom="4dp"
                 android:textColor="@color/primary_dark" />
 
+            <!-- Phone Number Field -->
             <EditText
                 android:id="@+id/et_email_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/custom_edittext"
                 android:hint="Enter Email Address"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/custom_edittext"
                 android:padding="12dp" />
 
-            <!-- Phone Number Field -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

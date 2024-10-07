@@ -22,6 +22,7 @@ import androidx.core.view.get
 import com.example.carpool2.MainApplication.Companion.database
 import com.example.carpool2.databinding.ActivityHomePageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,11 +30,22 @@ import java.util.Locale
 
 class HomePageActivity : AppCompatActivity() {
     private lateinit var homePageBinding: ActivityHomePageBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homePageBinding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(homePageBinding.root)
+        auth = FirebaseAuth.getInstance()
+        homePageBinding.btnLogout.setOnClickListener {
+            auth.signOut()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // Close HomePageActivity so the user cannot go back
+        }
+
+        //logout button implementation
+
         val dateTimeEditText = findViewById<EditText>(R.id.date_time_value)
         // Set current date and time
         val currentDate = Calendar.getInstance().time

@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import com.example.carpool2.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -13,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var activityMainBinding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -20,66 +19,75 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-
         activityMainBinding.btnSubmit.setOnClickListener {
             val email = activityMainBinding.emailEditText.text.toString().trim()
             if (email.isNotEmpty()) {
-                sendEmailVerification(email)
+                loginOrRegisterUser(email)
             } else {
                 Toast.makeText(this, "Please enter an email address", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun sendEmailVerification(email: String) {
-        auth.createUserWithEmailAndPassword(email, "default_password") // Firebase requires a password
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
-                        if (verificationTask.isSuccessful) {
-                            Toast.makeText(this, "Verification email sent to $email", Toast.LENGTH_LONG).show()
-                            checkEmailVerified()
+    // Check if the user exists, then log in or create a new user
+    private fun loginOrRegisterUser(email: String) {
+        val defaultPassword = "default_password"
+
+        // Try signing in first
+        auth.signInWithEmailAndPassword(email, defaultPassword).addOnCompleteListener { signInTask ->
+            if (signInTask.isSuccessful) {
+                // User signed in successfully
+                val user = auth.currentUser
+                if (user != null && user.isEmailVerified) {
+                    navigateToHomePage()
+                } else if (user != null && !user.isEmailVerified) {
+                    sendEmailVerification(email)
+                }
+            } else {
+                // If sign-in fails, try creating the user
+                auth.createUserWithEmailAndPassword(email, defaultPassword)
+                    .addOnCompleteListener { signUpTask ->
+                        if (signUpTask.isSuccessful) {
+                            sendEmailVerification(email)
                         } else {
-                            Toast.makeText(this, "Failed to send verification email", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Failed to create user: ${signUpTask.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
-                } else {
-                    Toast.makeText(this, "Failed to create user: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                }
             }
-
+        }
     }
 
-//    private fun checkEmailVerified() {
-//        val user = auth.currentUser
-//        user?.reload()?.addOnCompleteListener {
-//            if (user.isEmailVerified) {
-//                navigateToHomePage()
-//            } else {
-//                Toast.makeText(this, "Please verify your email", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
+    private fun sendEmailVerification(email: String) {
+        val user = auth.currentUser
+        user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
+            if (verificationTask.isSuccessful) {
+                Toast.makeText(this, "Verification email sent to $email", Toast.LENGTH_LONG).show()
+                checkEmailVerified()
+            } else {
+                Toast.makeText(this, "Failed to send verification email", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     private fun checkEmailVerified() {
         val user = auth.currentUser
         user?.reload()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                if (user.isEmailVerified && user != null) {
+                if (user != null && user.isEmailVerified) {
                     navigateToHomePage()
                 } else {
-//                    Toast.makeText(this, "Please verify your email. Checking again in 5 seconds...", Toast.LENGTH_SHORT).show()
                     // Recheck after a delay (e.g., 5 seconds)
                     Handler().postDelayed({ checkEmailVerified() }, 5000)
-
                 }
             } else {
                 Toast.makeText(this, "Failed to reload user", Toast.LENGTH_SHORT).show()
             }
         }
     }
-
 
     private fun navigateToHomePage() {
         val intent = Intent(this, HomePageActivity::class.java)
