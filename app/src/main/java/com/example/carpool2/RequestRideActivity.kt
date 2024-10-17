@@ -35,7 +35,7 @@ class RequestRideActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    val intent = Intent(this, HomePageActivity::class.java)
+                    val intent = Intent(this, HomeFragment::class.java)
                     startActivity(intent)
                     finish()
                     true
@@ -74,7 +74,7 @@ class RequestRideActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         // Navigate to HomeActivity when back button is pressed
-        val intent = Intent(this, HomePageActivity::class.java)
+        val intent = Intent(this, HomeFragment::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         finish() // Finish the current activity

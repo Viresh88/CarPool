@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/background_light"
+    android:padding="24dp"
+    tools:context=".LoginActivity">
+
+    <!-- App Logo at the Top -->
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_splash_logo"
+        android:contentDescription="App Logo"
+        android:layout_marginBottom="40dp" />
+
+    <!-- Title Text for Email Prompt -->
+    <TextView
+        android:id="@+id/tv_enter_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Enter Your Email Address"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_dark"
+        android:gravity="center" />
+
+    <!-- Email Input Field -->
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="8dp"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColor="@color/primary_dark"
+        android:textSize="16sp" />
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_button"
+        android:text="Continue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

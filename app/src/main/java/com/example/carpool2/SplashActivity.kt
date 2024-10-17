@@ -21,9 +21,9 @@ class SplashActivity : AppCompatActivity() {
         val zoomAnimation = AnimationUtils.loadAnimation(this, R.anim.zoom_in)
         splashLogo.startAnimation(zoomAnimation)
 
-        // Display the splash screen for 3 seconds, then navigate to the MainActivity
+        // Display the splash screen for 3 seconds, then navigate to the LoginActivity
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            val intent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000) // 3000 milliseconds = 3 seconds

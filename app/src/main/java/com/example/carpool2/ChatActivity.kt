@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UserListActivity : AppCompatActivity() {
@@ -39,7 +38,7 @@ class UserListActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    val intent = Intent(this, HomePageActivity::class.java)
+                    val intent = Intent(this, HomeFragment::class.java)
                     startActivity(intent)
                     finish()
                     true
@@ -111,7 +110,7 @@ class UserListActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         // Navigate to HomeActivity when back button is pressed
-        val intent = Intent(this, HomePageActivity::class.java)
+        val intent = Intent(this, HomeFragment::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         finish() // Finish the current activity

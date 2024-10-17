@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Welcome Text -->
+            <TextView
+                android:id="@+id/welcomeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Welcome"
+                android:textColor="#F9A825"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnLogout"
+                android:layout_width="34dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/logouticon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/welcomeText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!-- Pool Buttons -->
+            <Button
+                android:id="@+id/findPoolButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#FF9800"
+                android:text="Find Pool"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@+id/offerPoolButton"
+                app:layout_constraintEnd_toStartOf="@+id/offerPoolButton"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/offerPoolButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:text="Offer Pool"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/findPoolButton"
+                app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:visibility="gone"
+                android:background="@drawable/customborder"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/findPoolButton">
+                <!-- Location Layout -->
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/locationLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/customborder_rounded"
+                    android:elevation="4dp">
+
+                    <!-- Title: Choose Location -->
+                    <TextView
+                        android:id="@+id/chooseLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="Choose Location"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black" />
+
+                    <!-- Pickup Location EditText -->
+                    <EditText
+                        android:id="@+id/pickupLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Pickup Location"
+                        android:background="@drawable/custom_edittext"
+                        android:padding="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <!-- Drop Location EditText -->
+                    <EditText
+                        android:id="@+id/dropLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Drop Location"
+                        android:background="@drawable/custom_edittext"
+                        android:padding="12dp"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <!-- Home and Work Button Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+
+                        <!-- Home Button -->
+                        <Button
+                            android:id="@+id/homeButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/custom_button"
+                            android:drawableStart="@drawable/homeicon2"
+                            android:drawablePadding="8dp"
+                            android:padding="12dp"
+                            android:text="Home"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:elevation="4dp" />
+
+                        <!-- Work Button -->
+                        <Button
+                            android:id="@+id/workButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:background="@drawable/custom_button"
+                            android:drawableStart="@drawable/work"
+                            android:drawablePadding="8dp"
+                            android:padding="12dp"
+                            android:text="Work"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:elevation="4dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- Date & Time Picker -->
+                <TextView
+                    android:id="@+id/date_time_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Date &amp; Time"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/locationLayout" />
+
+                <LinearLayout
+                    android:id="@+id/date_time_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/customborder"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/date_time_label">
+
+                    <EditText
+                        android:id="@+id/date_time_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:focusable="false" />
+
+                    <ImageButton
+                        android:id="@+id/date_picker_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Select Date"
+                        android:padding="4dp"
+                        android:src="@android:drawable/ic_menu_my_calendar" />
+                </LinearLayout>
+
+                <!-- Select Number of Seat Section -->
+                <TextView
+                    android:id="@+id/select_seat_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Select Number of Seat"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/date_time_layout"
+                    app:layout_goneMarginStart="10dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/seat_selection_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/select_seat_label">
+
+                    <Button
+                        android:id="@+id/seat_1"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/seat_unselected_background"
+                        android:text="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/seat_2"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/seat_unselected_background"
+                        android:text="2"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/seat_3"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/seat_unselected_background"
+                        android:text="3"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+
+
+
+
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="NEXT"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/holo_orange_light"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@id/seat_selection_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- Bottom Navigation View -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/customborder"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/findPoolButton"
+                tools:ignore="NotSibling">
+
+                <ScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Car Icon Section -->
+                        <ImageView
+                            android:id="@+id/iv_car_icon"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="16dp"
+                            android:src="@drawable/ic_carpool_pro"
+                            android:contentDescription="Car Icon" />
+
+                        <!-- Location Input Section -->
+                        <LinearLayout
+                            android:id="@+id/locationLayout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/customborder_rounded"
+                            android:elevation="4dp">
+
+                            <TextView
+                                android:id="@+id/chooseLocation1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Choose Location"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="12dp" />
+
+                            <EditText
+                                android:id="@+id/pickupLocation1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Pickup Location"
+                                android:background="@drawable/custom_edittext"
+                                android:padding="12dp"
+                                android:layout_marginBottom="12dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+
+                            <EditText
+                                android:id="@+id/dropLocation1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Drop Location"
+                                android:background="@drawable/custom_edittext"
+                                android:padding="12dp"
+                                android:layout_marginBottom="16dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <!-- Vehicle Details Section -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Model"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="4dp" />
+
+                        <EditText
+                            android:id="@+id/et_model"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Vehicle Model"
+                            android:background="@drawable/custom_edittext"
+                            android:padding="12dp"
+                            android:textColor="@android:color/black" />
+
+                        <!-- Vehicle Year Section -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vehicle Year"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="4dp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_year"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/custom_spinner"
+                            android:padding="12dp"
+                            android:popupBackground="@android:color/white" />
+
+                        <!-- Vehicle Number Section -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vehicle Number"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="4dp" />
+
+                        <EditText
+                            android:id="@+id/et_vehicle_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Add Vehicle Number"
+                            android:background="@drawable/custom_edittext"
+                            android:padding="12dp"
+                            android:textColor="@android:color/black" />
+
+                        <!-- Seats Section -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Seats"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="4dp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_seats"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/custom_spinner"
+                            android:padding="12dp"
+                            android:popupBackground="@android:color/white" />
+
+                        <!-- Next Button Section -->
+                        <Button
+                            android:id="@+id/btn_next"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="NEXT"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="16dp"
+                            android:backgroundTint="@android:color/holo_orange_light"
+                            android:textColor="@android:color/white"
+                            android:elevation="8dp" />
+
+                    </LinearLayout>
+                </ScrollView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
