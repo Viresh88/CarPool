@@ -1,9 +1,11 @@
-package com.example.carpool2
+package com.example.carpool2.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
+import com.example.carpool2.entity.RideOffer
+import com.example.carpool2.entity.Vehicle
 import java.util.Date
 
 class Converters {

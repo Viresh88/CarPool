@@ -1,4 +1,4 @@
-package com.example.carpool2
+package com.example.carpool2.adapters
 
 
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.carpool2.entity.Message
+import com.example.carpool2.R
 import com.google.firebase.auth.FirebaseAuth
 
 class ChatAdapter(private val messageList: ArrayList<Message>) :

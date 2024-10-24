@@ -74,7 +74,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:background="@drawable/customborder"
                 app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -303,7 +303,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/customborder"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -456,7 +456,7 @@
 
                         <!-- Next Button Section -->
                         <Button
-                            android:id="@+id/btn_next"
+                            android:id="@+id/btnnextOffer"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="NEXT"

@@ -1,4 +1,4 @@
-package com.example.carpool2
+package com.example.carpool2.adapters
 
 
 
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.carpool2.R
+import com.example.carpool2.entity.User
 
 class UserListAdapter(
     private val userList: ArrayList<User>,

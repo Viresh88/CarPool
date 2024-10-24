@@ -1,4 +1,4 @@
-package com.example.carpool2
+package com.example.carpool2.entity
 
 
 

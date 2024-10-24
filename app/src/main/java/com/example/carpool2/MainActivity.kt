@@ -3,6 +3,11 @@ package com.example.carpool2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.carpool2.fragments.ChatFragment
+import com.example.carpool2.fragments.HomeFragment
+import com.example.carpool2.fragments.MyRidesFragment
+import com.example.carpool2.fragments.ProfileFragment
+import com.example.carpool2.fragments.RequestRideFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +25,24 @@ class MainActivity : AppCompatActivity() {
                 R.id.home -> {
                     loadFragment(HomeFragment())
                      true
+                }
+                R.id.myRides -> {
+                    loadFragment(MyRidesFragment())
+                    true
+                }
+                R.id.requestRide -> {
+                    loadFragment(RequestRideFragment())
+                    true
+
+                }
+                R.id.profile ->{
+                    loadFragment(ProfileFragment())
+                    true
+                }
+                R.id.chat -> {
+                    loadFragment(ChatFragment())
+                    true
+
                 }
 
 //                R.id.nav_profile -> {

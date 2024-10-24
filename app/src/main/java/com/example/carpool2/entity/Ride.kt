@@ -1,4 +1,4 @@
-package com.example.carpool2
+package com.example.carpool2.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

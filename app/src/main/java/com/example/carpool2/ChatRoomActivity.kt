@@ -9,6 +9,10 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.carpool2.adapters.ChatAdapter
+import com.example.carpool2.entity.Message
+import com.example.carpool2.entity.User
+import com.example.carpool2.fragments.ChatFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
@@ -81,7 +85,7 @@ private fun sendMessage(messageText: String) {
         override fun onBackPressed() {
                 super.onBackPressed()
                 // Navigate to HomeActivity when back button is pressed
-                val intent = Intent(this, UserListActivity::class.java)
+                val intent = Intent(this, ChatFragment::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
                 finish() // Finish the current activity

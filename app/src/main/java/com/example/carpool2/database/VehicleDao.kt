@@ -1,10 +1,11 @@
-package com.example.carpool2
+package com.example.carpool2.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.carpool2.entity.Vehicle
 
 @Dao
 interface VehicleDao {

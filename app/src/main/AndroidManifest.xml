@@ -22,21 +22,7 @@
         <activity
             android:name=".ChatRoomActivity"
             android:exported="false" />
-        <activity
-            android:name=".UserListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RequestRideActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OfferPool"
-            android:exported="false" />
-        <activity
-            android:name=".MyRidesActivity"
-            android:exported="false" />
+
 
         <activity
             android:name=".SplashActivity"
